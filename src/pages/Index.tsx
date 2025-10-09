@@ -64,41 +64,56 @@ export default function Index() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-background via-background to-muted">
       <section className="min-h-screen flex items-center justify-center px-4 relative overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(212,175,55,0.1),transparent_50%)]" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_50%,rgba(139,115,85,0.1),transparent_50%)]" />
+        <div className="absolute inset-0">
+          {gallery.map((photo, index) => (
+            <div
+              key={photo.id}
+              className={`absolute inset-0 transition-all duration-1000 ease-in-out ${
+                index === currentSlide ? 'opacity-30' : 'opacity-0'
+              }`}
+            >
+              <img
+                src={photo.url}
+                alt={photo.alt}
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-black/50" />
+            </div>
+          ))}
+        </div>
         
         <div className="max-w-5xl mx-auto text-center z-10 animate-fade-in">
           <div className="inline-block mb-6">
             <div className="w-20 h-1 bg-primary mx-auto rounded-full" />
           </div>
           
-          <h1 className="text-6xl md:text-8xl font-bold mb-6 tracking-tight">
+          <h1 className="text-6xl md:text-8xl font-bold mb-6 tracking-tight text-white">
             HAPPY BIRTHDAY
           </h1>
           
           <div className="w-32 h-1 bg-secondary mx-auto mb-8 rounded-full" />
           
-          <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed mb-8">
+          <p className="text-xl md:text-2xl text-white/90 max-w-3xl mx-auto leading-relaxed mb-8">
             Сегодня твой день. День человека, который делает мир лучше просто своим присутствием. 
             Ты — воплощение силы, мудрости и благородства.
           </p>
           
-          <p className="text-lg md:text-xl text-foreground/80 max-w-2xl mx-auto italic">
+          <p className="text-lg md:text-xl text-white/80 max-w-2xl mx-auto italic">
             Пусть этот год принесёт новые победы, незабываемые моменты 
             и исполнение самых заветных желаний.
           </p>
           
           <Button 
-            onClick={() => document.getElementById('gallery')?.scrollIntoView({ behavior: 'smooth' })}
+            onClick={() => document.getElementById('wishes')?.scrollIntoView({ behavior: 'smooth' })}
             className="mt-12 text-lg px-8 py-6 bg-primary hover:bg-primary/90 text-primary-foreground"
           >
-            Наши моменты
+            Смотреть дальше
             <Icon name="ArrowDown" className="ml-2" size={20} />
           </Button>
         </div>
       </section>
 
-      <section className="py-24 px-4 bg-card/50">
+      <section id="wishes" className="py-24 px-4 bg-card/50">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16 animate-fade-in">
             <h2 className="text-5xl md:text-6xl font-bold mb-4">Пожелания</h2>
@@ -124,72 +139,6 @@ export default function Index() {
               </Card>
             ))}
           </div>
-        </div>
-      </section>
-
-      <section id="gallery" className="py-24 px-4">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16 animate-fade-in">
-            <h2 className="text-5xl md:text-6xl font-bold mb-4">Фотогалерея</h2>
-            <div className="w-24 h-1 bg-primary mx-auto rounded-full" />
-          </div>
-          
-          <Card className="relative overflow-hidden border-2 border-border bg-card">
-            <div className="relative aspect-[16/10] overflow-hidden">
-              {gallery.map((photo, index) => (
-                <div
-                  key={photo.id}
-                  className={`absolute inset-0 transition-all duration-700 ease-in-out ${
-                    index === currentSlide ? 'opacity-100 scale-100' : 'opacity-0 scale-105'
-                  }`}
-                >
-                  <img
-                    src={photo.url}
-                    alt={photo.alt}
-                    className="w-full h-full object-cover"
-                  />
-                  <div className="absolute bottom-8 left-8 right-8 text-white">
-                    <p className="text-sm text-white/80">{index + 1} / {gallery.length}</p>
-                  </div>
-                </div>
-              ))}
-              
-              <button
-                onClick={prevSlide}
-                className="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-black/50 hover:bg-black/70 flex items-center justify-center text-white transition-all z-10"
-              >
-                <Icon name="ChevronLeft" size={28} />
-              </button>
-              
-              <button
-                onClick={nextSlide}
-                className="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-black/50 hover:bg-black/70 flex items-center justify-center text-white transition-all z-10"
-              >
-                <Icon name="ChevronRight" size={28} />
-              </button>
-              
-              <button
-                onClick={() => setIsAutoPlaying(!isAutoPlaying)}
-                className="absolute top-4 right-4 w-10 h-10 rounded-full bg-black/50 hover:bg-black/70 flex items-center justify-center text-white transition-all z-10"
-              >
-                <Icon name={isAutoPlaying ? 'Pause' : 'Play'} size={20} />
-              </button>
-            </div>
-            
-            <div className="flex items-center justify-center gap-2 py-6 bg-card/50">
-              {gallery.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => goToSlide(index)}
-                  className={`transition-all ${
-                    index === currentSlide
-                      ? 'w-8 h-2 bg-primary'
-                      : 'w-2 h-2 bg-muted-foreground/30 hover:bg-muted-foreground/50'
-                  } rounded-full`}
-                />
-              ))}
-            </div>
-          </Card>
         </div>
       </section>
 

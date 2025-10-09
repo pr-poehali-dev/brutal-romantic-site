@@ -109,11 +109,7 @@ export default function Index() {
 
       <footer className="py-12 px-4 border-t border-border">
         <div className="max-w-7xl mx-auto text-center">
-          <div className="flex items-center justify-center gap-3 mb-4">
-            <Icon name="Heart" className="text-primary" size={24} />
-            <p className="text-lg text-muted-foreground">С любовью и уважением</p>
-            <Icon name="Heart" className="text-primary" size={24} />
-          </div>
+          <p className="text-lg text-muted-foreground mb-4">P.S. С любовью, твоя Поля ❤️</p>
           <p className="text-sm text-muted-foreground/60">
             {new Date().getFullYear()}
           </p>

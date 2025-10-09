@@ -8,7 +8,7 @@ export default function Index() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
   const [backgroundSlide, setBackgroundSlide] = useState(0);
-  const [isMusicPlaying, setIsMusicPlaying] = useState(false);
+  const [isMusicPlaying, setIsMusicPlaying] = useState(true);
 
   const backgroundPhotos = [
     { id: 1, url: 'https://cdn.poehali.dev/files/36f89c5e-f4b5-4b26-9f03-aaa8cdf91924.jpeg', alt: '' },

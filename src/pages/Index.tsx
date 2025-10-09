@@ -9,6 +9,8 @@ export default function Index() {
 
   const gallery = [
     { id: 1, url: 'https://cdn.poehali.dev/files/396ea15e-0875-45ba-b6c3-f2360f45a179.jpeg', alt: 'Термальный комплекс' },
+    { id: 2, url: 'https://cdn.poehali.dev/files/446c1a54-a64a-4664-be77-31f7cec0d6f2.jpeg', alt: 'Бассейн' },
+    { id: 3, url: 'https://cdn.poehali.dev/files/31b33441-bbf2-4c65-af35-a38b7b12c4d0.jpeg', alt: 'Природа' },
   ];
 
   useEffect(() => {

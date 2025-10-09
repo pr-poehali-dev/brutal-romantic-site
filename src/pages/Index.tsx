@@ -18,6 +18,9 @@ export default function Index() {
     { id: 1, url: 'https://cdn.poehali.dev/files/396ea15e-0875-45ba-b6c3-f2360f45a179.jpeg', alt: 'Термальный комплекс' },
     { id: 2, url: 'https://cdn.poehali.dev/files/446c1a54-a64a-4664-be77-31f7cec0d6f2.jpeg', alt: 'Бассейн' },
     { id: 3, url: 'https://cdn.poehali.dev/files/31b33441-bbf2-4c65-af35-a38b7b12c4d0.jpeg', alt: 'Природа' },
+    { id: 4, url: 'https://cdn.poehali.dev/files/17ca7987-0a10-4007-96e9-4838f2721256.jpeg', alt: 'Территория' },
+    { id: 5, url: 'https://cdn.poehali.dev/files/5bf34e14-4f26-47c0-a900-bf3eab496437.jpeg', alt: 'Вид' },
+    { id: 6, url: 'https://cdn.poehali.dev/files/713dd562-ee63-4446-b8da-d5c32e432e00.jpeg', alt: 'Комплекс' },
   ];
 
   useEffect(() => {

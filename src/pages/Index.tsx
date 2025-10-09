@@ -21,6 +21,9 @@ export default function Index() {
     { id: 4, url: 'https://cdn.poehali.dev/files/17ca7987-0a10-4007-96e9-4838f2721256.jpeg', alt: 'Территория' },
     { id: 5, url: 'https://cdn.poehali.dev/files/5bf34e14-4f26-47c0-a900-bf3eab496437.jpeg', alt: 'Вид' },
     { id: 6, url: 'https://cdn.poehali.dev/files/713dd562-ee63-4446-b8da-d5c32e432e00.jpeg', alt: 'Комплекс' },
+    { id: 7, url: 'https://cdn.poehali.dev/files/62f85637-d1c1-4fa6-a1fb-943e957db831.jpeg', alt: 'Ресторан' },
+    { id: 8, url: 'https://cdn.poehali.dev/files/c041a9f4-1e28-48ee-b27b-d0ae4bd763a0.jpeg', alt: 'Интерьер' },
+    { id: 9, url: 'https://cdn.poehali.dev/files/8c8ad765-5044-4ca9-8269-dc9b7503cbaf.jpeg', alt: 'Домик' },
   ];
 
   useEffect(() => {

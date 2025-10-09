@@ -1,19 +1,42 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import Icon from '@/components/ui/icon';
 
 export default function Index() {
-  const [selectedImage, setSelectedImage] = useState<number | null>(null);
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [isAutoPlaying, setIsAutoPlaying] = useState(true);
 
   const gallery = [
     { id: 1, url: 'https://cdn.poehali.dev/files/ba073a79-8d7a-4453-95d4-404ec231b165.jpeg', alt: 'Момент 1' },
     { id: 2, url: 'https://cdn.poehali.dev/files/2a1ecd05-3bd0-4c30-9127-038757a8e271.jpeg', alt: 'Момент 2' },
     { id: 3, url: 'https://cdn.poehali.dev/files/164f2a74-0c18-4ba8-9168-bf37a38ec943.jpeg', alt: 'Момент 3' },
-    { id: 4, url: '/placeholder.svg', alt: 'Момент 4' },
-    { id: 5, url: '/placeholder.svg', alt: 'Момент 5' },
-    { id: 6, url: '/placeholder.svg', alt: 'Момент 6' },
   ];
+
+  useEffect(() => {
+    if (!isAutoPlaying) return;
+    
+    const interval = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % gallery.length);
+    }, 4000);
+    
+    return () => clearInterval(interval);
+  }, [isAutoPlaying, gallery.length]);
+
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % gallery.length);
+    setIsAutoPlaying(false);
+  };
+
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev - 1 + gallery.length) % gallery.length);
+    setIsAutoPlaying(false);
+  };
+
+  const goToSlide = (index: number) => {
+    setCurrentSlide(index);
+    setIsAutoPlaying(false);
+  };
 
   const wishes = [
     {
@@ -82,28 +105,64 @@ export default function Index() {
             <div className="w-24 h-1 bg-primary mx-auto rounded-full" />
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {gallery.map((photo, index) => (
-              <Card
-                key={photo.id}
-                className="group cursor-pointer overflow-hidden border-2 border-border hover:border-primary transition-all duration-300 animate-scale-in bg-card"
-                style={{ animationDelay: `${index * 100}ms` }}
-                onClick={() => setSelectedImage(photo.id)}
-              >
-                <div className="relative aspect-square overflow-hidden">
+          <Card className="relative overflow-hidden border-2 border-border bg-card">
+            <div className="relative aspect-[16/10] overflow-hidden">
+              {gallery.map((photo, index) => (
+                <div
+                  key={photo.id}
+                  className={`absolute inset-0 transition-all duration-700 ease-in-out ${
+                    index === currentSlide ? 'opacity-100 scale-100' : 'opacity-0 scale-105'
+                  }`}
+                >
                   <img
                     src={photo.url}
                     alt={photo.alt}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    className="w-full h-full object-cover"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                  <div className="absolute bottom-4 left-4 right-4 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <p className="text-sm font-semibold">{photo.alt}</p>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                  <div className="absolute bottom-8 left-8 right-8 text-white">
+                    <h3 className="text-3xl font-bold mb-2">{photo.alt}</h3>
+                    <p className="text-sm text-white/80">{index + 1} / {gallery.length}</p>
                   </div>
                 </div>
-              </Card>
-            ))}
-          </div>
+              ))}
+              
+              <button
+                onClick={prevSlide}
+                className="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-black/50 hover:bg-black/70 flex items-center justify-center text-white transition-all z-10"
+              >
+                <Icon name="ChevronLeft" size={28} />
+              </button>
+              
+              <button
+                onClick={nextSlide}
+                className="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-black/50 hover:bg-black/70 flex items-center justify-center text-white transition-all z-10"
+              >
+                <Icon name="ChevronRight" size={28} />
+              </button>
+              
+              <button
+                onClick={() => setIsAutoPlaying(!isAutoPlaying)}
+                className="absolute top-4 right-4 w-10 h-10 rounded-full bg-black/50 hover:bg-black/70 flex items-center justify-center text-white transition-all z-10"
+              >
+                <Icon name={isAutoPlaying ? 'Pause' : 'Play'} size={20} />
+              </button>
+            </div>
+            
+            <div className="flex items-center justify-center gap-2 py-6 bg-card/50">
+              {gallery.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => goToSlide(index)}
+                  className={`transition-all ${
+                    index === currentSlide
+                      ? 'w-8 h-2 bg-primary'
+                      : 'w-2 h-2 bg-muted-foreground/30 hover:bg-muted-foreground/50'
+                  } rounded-full`}
+                />
+              ))}
+            </div>
+          </Card>
         </div>
       </section>
 

@@ -87,23 +87,49 @@ export default function Index() {
       </section>
 
       <section className="py-24 px-4">
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16 animate-fade-in">
-            <h2 className="text-5xl md:text-6xl font-bold mb-4">Видео</h2>
+            <h2 className="text-5xl md:text-6xl font-bold mb-4">Фотогалерея</h2>
             <div className="w-24 h-1 bg-primary mx-auto rounded-full" />
           </div>
           
-          <Card className="overflow-hidden border-2 border-border hover:border-primary transition-all duration-300 bg-card">
-            <div className="relative aspect-video bg-muted flex items-center justify-center">
-              <div className="text-center">
-                <Icon name="Play" size={64} className="text-primary mx-auto mb-4" />
-                <p className="text-muted-foreground">Добавьте ваше особенное видео</p>
-                <Button variant="outline" className="mt-4 border-primary text-primary hover:bg-primary hover:text-primary-foreground">
-                  Загрузить видео
-                </Button>
-              </div>
+          <div className="relative max-w-4xl mx-auto">
+            <div className="aspect-[4/3] overflow-hidden rounded-lg border-2 border-border bg-card">
+              <img
+                src={gallery[currentSlide].url}
+                alt={gallery[currentSlide].alt}
+                className="w-full h-full object-cover"
+              />
             </div>
-          </Card>
+            
+            <button
+              onClick={prevSlide}
+              className="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-background/80 hover:bg-background border-2 border-border flex items-center justify-center transition-all"
+            >
+              <Icon name="ChevronLeft" size={24} />
+            </button>
+            
+            <button
+              onClick={nextSlide}
+              className="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-background/80 hover:bg-background border-2 border-border flex items-center justify-center transition-all"
+            >
+              <Icon name="ChevronRight" size={24} />
+            </button>
+            
+            <div className="flex justify-center gap-2 mt-6">
+              {gallery.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => goToSlide(index)}
+                  className={`w-3 h-3 rounded-full transition-all ${
+                    index === currentSlide
+                      ? 'bg-primary w-8'
+                      : 'bg-border hover:bg-primary/50'
+                  }`}
+                />
+              ))}
+            </div>
+          </div>
         </div>
       </section>
 

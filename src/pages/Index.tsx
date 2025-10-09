@@ -94,7 +94,7 @@ export default function Index() {
           <div className="w-32 h-1 bg-secondary mx-auto mb-8 rounded-full" />
           
           <p className="text-xl md:text-2xl text-white/90 max-w-3xl mx-auto leading-relaxed mb-8">
-            Сегодня твой день. День человека, который делает мир лучше просто своим присутствием. 
+            Сегодня твой день. День человека, который делает мою жизнь лучше просто своим присутствием. 
             Ты — воплощение силы, мудрости и благородства.
           </p>
           

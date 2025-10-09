@@ -24,6 +24,7 @@ export default function Index() {
     { id: 7, url: 'https://cdn.poehali.dev/files/62f85637-d1c1-4fa6-a1fb-943e957db831.jpeg', alt: 'Ресторан' },
     { id: 8, url: 'https://cdn.poehali.dev/files/c041a9f4-1e28-48ee-b27b-d0ae4bd763a0.jpeg', alt: 'Интерьер' },
     { id: 9, url: 'https://cdn.poehali.dev/files/8c8ad765-5044-4ca9-8269-dc9b7503cbaf.jpeg', alt: 'Домик' },
+    { id: 10, url: 'https://cdn.poehali.dev/files/2eedd608-9e76-4fed-9e66-b270c4db14a2.jpeg', alt: 'Номер' },
   ];
 
   useEffect(() => {

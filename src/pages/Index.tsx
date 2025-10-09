@@ -98,6 +98,35 @@ export default function Index() {
         </div>
       </section>
 
+      <section className="py-24 px-4 bg-card/50">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16 animate-fade-in">
+            <h2 className="text-5xl md:text-6xl font-bold mb-4">Пожелания</h2>
+            <div className="w-24 h-1 bg-primary mx-auto rounded-full" />
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {wishes.map((wish, index) => (
+              <Card
+                key={index}
+                className="p-8 border-2 border-border hover:border-primary transition-all duration-300 bg-card animate-scale-in group"
+                style={{ animationDelay: `${index * 150}ms` }}
+              >
+                <div className="flex items-start gap-6">
+                  <div className="flex-shrink-0 w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
+                    <Icon name={wish.icon as any} size={32} className="text-primary" />
+                  </div>
+                  <div>
+                    <h3 className="text-2xl font-bold mb-3">{wish.title}</h3>
+                    <p className="text-muted-foreground leading-relaxed">{wish.text}</p>
+                  </div>
+                </div>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section id="gallery" className="py-24 px-4">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16 animate-fade-in">
@@ -161,35 +190,6 @@ export default function Index() {
               ))}
             </div>
           </Card>
-        </div>
-      </section>
-
-      <section className="py-24 px-4 bg-card/50">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16 animate-fade-in">
-            <h2 className="text-5xl md:text-6xl font-bold mb-4">Пожелания</h2>
-            <div className="w-24 h-1 bg-primary mx-auto rounded-full" />
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {wishes.map((wish, index) => (
-              <Card
-                key={index}
-                className="p-8 border-2 border-border hover:border-primary transition-all duration-300 bg-card animate-scale-in group"
-                style={{ animationDelay: `${index * 150}ms` }}
-              >
-                <div className="flex items-start gap-6">
-                  <div className="flex-shrink-0 w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
-                    <Icon name={wish.icon as any} size={32} className="text-primary" />
-                  </div>
-                  <div>
-                    <h3 className="text-2xl font-bold mb-3">{wish.title}</h3>
-                    <p className="text-muted-foreground leading-relaxed">{wish.text}</p>
-                  </div>
-                </div>
-              </Card>
-            ))}
-          </div>
         </div>
       </section>
 

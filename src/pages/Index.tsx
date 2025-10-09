@@ -71,7 +71,7 @@ export default function Index() {
     <div className="min-h-screen bg-gradient-to-b from-background via-background to-muted">
       <iframe
         className="hidden"
-        src={`https://www.youtube.com/embed/uiuMFTNNV-k?autoplay=${isMusicPlaying ? '1' : '0'}&loop=1&playlist=uiuMFTNNV-k&controls=0`}
+        src={`https://www.youtube.com/embed/kPYBn8VcdXk?autoplay=${isMusicPlaying ? '1' : '0'}&loop=1&playlist=kPYBn8VcdXk&controls=0`}
         allow="autoplay"
         title="Background Music"
       />

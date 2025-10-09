@@ -38,28 +38,7 @@ export default function Index() {
     setIsAutoPlaying(false);
   };
 
-  const wishes = [
-    {
-      icon: 'Heart',
-      title: 'Сила и здоровье',
-      text: 'Пусть каждый день приносит энергию для новых свершений',
-    },
-    {
-      icon: 'Sparkles',
-      title: 'Исполнение желаний',
-      text: 'Все твои цели и мечты обязательно станут реальностью',
-    },
-    {
-      icon: 'TrendingUp',
-      title: 'Успех и рост',
-      text: 'Карьера, личные достижения — всё будет на высшем уровне',
-    },
-    {
-      icon: 'Users',
-      title: 'Верные друзья',
-      text: 'Рядом всегда будут те, кто поддержит в любой ситуации',
-    },
-  ];
+
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-background via-background to-muted">
@@ -103,42 +82,7 @@ export default function Index() {
             и исполнение самых заветных желаний.
           </p>
           
-          <Button 
-            onClick={() => document.getElementById('wishes')?.scrollIntoView({ behavior: 'smooth' })}
-            className="mt-12 text-lg px-8 py-6 bg-primary hover:bg-primary/90 text-primary-foreground"
-          >
-            Смотреть дальше
-            <Icon name="ArrowDown" className="ml-2" size={20} />
-          </Button>
-        </div>
-      </section>
 
-      <section id="wishes" className="py-24 px-4 bg-card/50">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16 animate-fade-in">
-            <h2 className="text-5xl md:text-6xl font-bold mb-4">Пожелания</h2>
-            <div className="w-24 h-1 bg-primary mx-auto rounded-full" />
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {wishes.map((wish, index) => (
-              <Card
-                key={index}
-                className="p-8 border-2 border-border hover:border-primary transition-all duration-300 bg-card animate-scale-in group"
-                style={{ animationDelay: `${index * 150}ms` }}
-              >
-                <div className="flex items-start gap-6">
-                  <div className="flex-shrink-0 w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
-                    <Icon name={wish.icon as any} size={32} className="text-primary" />
-                  </div>
-                  <div>
-                    <h3 className="text-2xl font-bold mb-3">{wish.title}</h3>
-                    <p className="text-muted-foreground leading-relaxed">{wish.text}</p>
-                  </div>
-                </div>
-              </Card>
-            ))}
-          </div>
         </div>
       </section>
 

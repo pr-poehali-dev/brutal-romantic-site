@@ -7,6 +7,7 @@ export default function Index() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
   const [backgroundSlide, setBackgroundSlide] = useState(0);
+  const [isMusicPlaying, setIsMusicPlaying] = useState(false);
 
   const backgroundPhotos = [
     { id: 1, url: 'https://cdn.poehali.dev/files/36f89c5e-f4b5-4b26-9f03-aaa8cdf91924.jpeg', alt: '' },
@@ -34,6 +35,10 @@ export default function Index() {
     
     return () => clearInterval(bgInterval);
   }, [backgroundPhotos.length]);
+
+  const toggleMusic = () => {
+    setIsMusicPlaying(!isMusicPlaying);
+  };
 
   useEffect(() => {
     if (!isAutoPlaying) return;
@@ -64,6 +69,20 @@ export default function Index() {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-background via-background to-muted">
+      <iframe
+        className="hidden"
+        src={`https://www.youtube.com/embed/uiuMFTNNV-k?autoplay=${isMusicPlaying ? '1' : '0'}&loop=1&playlist=uiuMFTNNV-k&controls=0`}
+        allow="autoplay"
+        title="Background Music"
+      />
+      
+      <button
+        onClick={toggleMusic}
+        className="fixed top-6 right-6 z-50 bg-primary/90 hover:bg-primary text-primary-foreground p-4 rounded-full shadow-lg transition-all duration-300 hover:scale-110"
+        aria-label={isMusicPlaying ? 'Остановить музыку' : 'Включить музыку'}
+      >
+        <Icon name={isMusicPlaying ? 'Volume2' : 'VolumeX'} size={24} />
+      </button>
       <section className="min-h-screen flex items-center justify-center px-4 relative overflow-hidden">
         <div className="absolute inset-0">
           {backgroundPhotos.map((photo, index) => (

@@ -8,9 +8,9 @@ export default function Index() {
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
 
   const gallery = [
-    { id: 1, url: 'https://cdn.poehali.dev/files/ba073a79-8d7a-4453-95d4-404ec231b165.jpeg', alt: 'Момент 1' },
-    { id: 2, url: 'https://cdn.poehali.dev/files/2a1ecd05-3bd0-4c30-9127-038757a8e271.jpeg', alt: 'Момент 2' },
-    { id: 3, url: 'https://cdn.poehali.dev/files/164f2a74-0c18-4ba8-9168-bf37a38ec943.jpeg', alt: 'Момент 3' },
+    { id: 1, url: 'https://cdn.poehali.dev/files/ba073a79-8d7a-4453-95d4-404ec231b165.jpeg', alt: '' },
+    { id: 2, url: 'https://cdn.poehali.dev/files/2a1ecd05-3bd0-4c30-9127-038757a8e271.jpeg', alt: '' },
+    { id: 3, url: 'https://cdn.poehali.dev/files/164f2a74-0c18-4ba8-9168-bf37a38ec943.jpeg', alt: '' },
   ];
 
   useEffect(() => {
@@ -119,9 +119,7 @@ export default function Index() {
                     alt={photo.alt}
                     className="w-full h-full object-cover"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
                   <div className="absolute bottom-8 left-8 right-8 text-white">
-                    <h3 className="text-3xl font-bold mb-2">{photo.alt}</h3>
                     <p className="text-sm text-white/80">{index + 1} / {gallery.length}</p>
                   </div>
                 </div>

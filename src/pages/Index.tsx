@@ -8,7 +8,7 @@ export default function Index() {
 
   const gallery = [
     { id: 1, url: 'https://cdn.poehali.dev/files/ba073a79-8d7a-4453-95d4-404ec231b165.jpeg', alt: 'Момент 1' },
-    { id: 2, url: 'https://cdn.poehali.dev/projects/9e513a8e-4cf1-4509-b09f-ee53ec4a0810/files/bcbfda1e-1a16-4572-b5f5-7689548ee22a.jpg', alt: 'Момент 2' },
+    { id: 2, url: 'https://cdn.poehali.dev/files/2a1ecd05-3bd0-4c30-9127-038757a8e271.jpeg', alt: 'Момент 2' },
     { id: 3, url: 'https://cdn.poehali.dev/projects/9e513a8e-4cf1-4509-b09f-ee53ec4a0810/files/1b7a54fe-4d2b-43e4-b990-a68c60940a4b.jpg', alt: 'Момент 3' },
     { id: 4, url: '/placeholder.svg', alt: 'Момент 4' },
     { id: 5, url: '/placeholder.svg', alt: 'Момент 5' },

@@ -7,7 +7,7 @@ export default function Index() {
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
 
   const gallery = [
-    { id: 1, url: 'https://cdn.poehali.dev/projects/9e513a8e-4cf1-4509-b09f-ee53ec4a0810/files/6ac1af5a-c880-4cc9-9daf-3f8aba098572.jpg', alt: 'Момент 1' },
+    { id: 1, url: 'https://cdn.poehali.dev/files/ba073a79-8d7a-4453-95d4-404ec231b165.jpeg', alt: 'Момент 1' },
     { id: 2, url: 'https://cdn.poehali.dev/projects/9e513a8e-4cf1-4509-b09f-ee53ec4a0810/files/bcbfda1e-1a16-4572-b5f5-7689548ee22a.jpg', alt: 'Момент 2' },
     { id: 3, url: 'https://cdn.poehali.dev/projects/9e513a8e-4cf1-4509-b09f-ee53ec4a0810/files/1b7a54fe-4d2b-43e4-b990-a68c60940a4b.jpg', alt: 'Момент 3' },
     { id: 4, url: '/placeholder.svg', alt: 'Момент 4' },

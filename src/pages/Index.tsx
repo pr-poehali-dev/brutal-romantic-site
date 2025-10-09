@@ -6,12 +6,27 @@ import Icon from '@/components/ui/icon';
 export default function Index() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
+  const [backgroundSlide, setBackgroundSlide] = useState(0);
+
+  const backgroundPhotos = [
+    { id: 1, url: 'https://cdn.poehali.dev/files/36f89c5e-f4b5-4b26-9f03-aaa8cdf91924.jpeg', alt: '' },
+    { id: 2, url: 'https://cdn.poehali.dev/files/39cbf136-64d5-4d15-80ed-2a4a742b21db.jpeg', alt: '' },
+    { id: 3, url: 'https://cdn.poehali.dev/files/062cf09e-d802-4dd8-9157-a86b18881a3c.jpeg', alt: '' },
+  ];
 
   const gallery = [
     { id: 1, url: 'https://cdn.poehali.dev/files/396ea15e-0875-45ba-b6c3-f2360f45a179.jpeg', alt: 'Термальный комплекс' },
     { id: 2, url: 'https://cdn.poehali.dev/files/446c1a54-a64a-4664-be77-31f7cec0d6f2.jpeg', alt: 'Бассейн' },
     { id: 3, url: 'https://cdn.poehali.dev/files/31b33441-bbf2-4c65-af35-a38b7b12c4d0.jpeg', alt: 'Природа' },
   ];
+
+  useEffect(() => {
+    const bgInterval = setInterval(() => {
+      setBackgroundSlide((prev) => (prev + 1) % backgroundPhotos.length);
+    }, 5000);
+    
+    return () => clearInterval(bgInterval);
+  }, [backgroundPhotos.length]);
 
   useEffect(() => {
     if (!isAutoPlaying) return;
@@ -44,11 +59,11 @@ export default function Index() {
     <div className="min-h-screen bg-gradient-to-b from-background via-background to-muted">
       <section className="min-h-screen flex items-center justify-center px-4 relative overflow-hidden">
         <div className="absolute inset-0">
-          {gallery.map((photo, index) => (
+          {backgroundPhotos.map((photo, index) => (
             <div
               key={photo.id}
               className={`absolute inset-0 transition-all duration-1000 ease-in-out ${
-                index === currentSlide ? 'opacity-30' : 'opacity-0'
+                index === backgroundSlide ? 'opacity-30' : 'opacity-0'
               }`}
             >
               <img

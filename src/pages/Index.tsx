@@ -63,7 +63,7 @@ export default function Index() {
             <div
               key={photo.id}
               className={`absolute inset-0 transition-all duration-1000 ease-in-out ${
-                index === backgroundSlide ? 'opacity-30' : 'opacity-0'
+                index === backgroundSlide ? 'opacity-60' : 'opacity-0'
               }`}
             >
               <img
@@ -71,7 +71,7 @@ export default function Index() {
                 alt={photo.alt}
                 className="w-full h-full object-cover"
               />
-              <div className="absolute inset-0 bg-black/50" />
+              <div className="absolute inset-0 bg-black/30" />
             </div>
           ))}
         </div>

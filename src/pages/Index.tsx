@@ -96,7 +96,7 @@ export default function Index() {
           
           <p className="text-xl md:text-2xl text-white/90 max-w-3xl mx-auto leading-relaxed mb-8">
             Сегодня твой день. День человека, который делает мою жизнь лучше просто своим присутствием. 
-            Ты для меня - воплощение силы, мужества и благородства.
+            Ты для меня - воплощение силы, мужества и благородства. Рядом с тобой я впервые могу расслабиться и почувствовать себя хрупкой девушкой.
           </p>
           
           <p className="text-lg md:text-xl text-white/80 max-w-2xl mx-auto italic">

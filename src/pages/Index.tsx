@@ -52,12 +52,10 @@ export default function Index() {
 
   const nextSlide = () => {
     setCurrentSlide((prev) => (prev + 1) % gallery.length);
-    setIsAutoPlaying(false);
   };
 
   const prevSlide = () => {
     setCurrentSlide((prev) => (prev - 1 + gallery.length) % gallery.length);
-    setIsAutoPlaying(false);
   };
 
   const goToSlide = (index: number) => {

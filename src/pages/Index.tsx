@@ -8,9 +8,7 @@ export default function Index() {
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
 
   const gallery = [
-    { id: 1, url: 'https://cdn.poehali.dev/files/ba073a79-8d7a-4453-95d4-404ec231b165.jpeg', alt: '' },
-    { id: 2, url: 'https://cdn.poehali.dev/files/2a1ecd05-3bd0-4c30-9127-038757a8e271.jpeg', alt: '' },
-    { id: 3, url: 'https://cdn.poehali.dev/files/164f2a74-0c18-4ba8-9168-bf37a38ec943.jpeg', alt: '' },
+    { id: 1, url: 'https://cdn.poehali.dev/files/396ea15e-0875-45ba-b6c3-f2360f45a179.jpeg', alt: 'Термальный комплекс' },
   ];
 
   useEffect(() => {

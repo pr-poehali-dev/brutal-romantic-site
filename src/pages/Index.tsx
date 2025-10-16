@@ -38,12 +38,22 @@ export default function Index() {
   }, [backgroundPhotos.length]);
 
   useEffect(() => {
-    const duration = 3000;
+    const duration = 5000;
     const animationEnd = Date.now() + duration;
-    const defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 0 };
+    const goldenColors = ['#FFD700', '#FFA500', '#FFDF00', '#FFB300', '#FFEA00'];
 
-    const randomInRange = (min: number, max: number) => {
-      return Math.random() * (max - min) + min;
+    const firework = () => {
+      confetti({
+        particleCount: 100,
+        spread: 70,
+        origin: { y: 0.6 },
+        colors: goldenColors,
+        startVelocity: 60,
+        gravity: 1.5,
+        scalar: 1.5,
+        ticks: 200,
+        shapes: ['circle', 'square']
+      });
     };
 
     const interval = setInterval(() => {
@@ -53,19 +63,8 @@ export default function Index() {
         return clearInterval(interval);
       }
 
-      const particleCount = 50 * (timeLeft / duration);
-
-      confetti({
-        ...defaults,
-        particleCount,
-        origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 }
-      });
-      confetti({
-        ...defaults,
-        particleCount,
-        origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 }
-      });
-    }, 250);
+      firework();
+    }, 400);
 
     return () => clearInterval(interval);
   }, []);

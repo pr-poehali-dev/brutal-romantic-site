@@ -44,15 +44,15 @@ export default function Index() {
 
     const firework = () => {
       confetti({
-        particleCount: 100,
-        spread: 70,
+        particleCount: 30,
+        spread: 40,
         origin: { y: 0.6 },
         colors: goldenColors,
-        startVelocity: 60,
-        gravity: 1.5,
-        scalar: 1.5,
-        ticks: 200,
-        shapes: ['circle', 'square']
+        startVelocity: 30,
+        gravity: 1.2,
+        scalar: 0.7,
+        ticks: 120,
+        shapes: ['circle']
       });
     };
 
@@ -64,7 +64,7 @@ export default function Index() {
       }
 
       firework();
-    }, 400);
+    }, 300);
 
     return () => clearInterval(interval);
   }, []);

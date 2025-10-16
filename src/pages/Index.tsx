@@ -38,7 +38,7 @@ export default function Index() {
   }, [backgroundPhotos.length]);
 
   useEffect(() => {
-    const duration = 2000;
+    const duration = 1000;
     const animationEnd = Date.now() + duration;
     const goldenColors = ['#FFD700', '#FFA500', '#FFDF00', '#FFB300', '#FFEA00'];
 

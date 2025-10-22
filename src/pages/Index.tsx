@@ -152,7 +152,7 @@ export default function Index() {
           
           <p className="text-lg md:text-xl text-white/80 max-w-2xl mx-auto italic">
             Пусть этот год принесёт новые победы, незабываемые моменты 
-            и исполнение самых заветных желаний.
+            и исполнение самых заветных желаний. Я тебя очень люблю❤️
           </p>
           
 

@@ -26,6 +26,7 @@ export default function Index() {
     { id: 9, url: 'https://cdn.poehali.dev/files/8c8ad765-5044-4ca9-8269-dc9b7503cbaf.jpeg', alt: 'Домик' },
     { id: 10, url: 'https://cdn.poehali.dev/files/2eedd608-9e76-4fed-9e66-b270c4db14a2.jpeg', alt: 'Номер' },
     { id: 11, url: 'https://cdn.poehali.dev/files/d3ba57e0-47a4-4a13-8098-a03ba90a25f7.jpeg', alt: 'Зона отдыха' },
+    { id: 12, url: 'https://cdn.poehali.dev/files/4c1c9938-24c4-4072-be04-79b040f7f25a.jpeg', alt: 'Номер люкс' },
   ];
 
   useEffect(() => {
